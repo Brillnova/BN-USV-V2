@@ -28,7 +28,7 @@ The source CAD, manufacturing/PCB files, field logs, real mission coordinates, l
 
 Brillnova-authored software and firmware in `software/` are licensed under the [MIT License](software/LICENSE). Vendored Leaflet is third-party software and retains its [own license](software/pi_v2/gcs_static/vendor/LEAFLET-LICENSE.txt).
 
-The STL models in `hardware/stl/` are not covered by the software license; their license has not yet been selected. The MIT software license does not apply to branding, photographs or other non-software assets.
+Brillnova STL models in [`hardware/stl/`](hardware/stl/README.md) are licensed separately under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Commercial use requires separate permission. The MIT software license does not apply to the STL models, branding, photographs or other non-software assets.
 
 ## Project page
 
