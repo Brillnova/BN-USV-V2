@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Brillnova | BN-USV V2</title>
+  <meta name="description" content="Explore BN-USV V2, a modular unmanned surface vehicle prototype and its field-test development.">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header wrap">
+    <a class="brand" href="https://brillnova.net"><img src="./brillnova-symbol.svg" alt="" width="44" height="44"><span>Brillnova</span></a>
+    <nav aria-label="Main navigation"><a href="https://github.com/Brillnova">GitHub</a><a href="https://www.youtube.com/@Brillnova">YouTube</a><a href="#contact">Contact</a></nav>
+  </header>
+  <main id="main" class="wrap">
+    <section class="intro" aria-labelledby="title">
+      <h1 id="title" class="product-title"><span class="product-name">USV <span class="product-definition">(Unmanned Surface Vehicle)</span></span><span class="product-version">V2</span></h1>
+      <p class="lead">A modular surface vehicle prototype for exploring on-water robotics, distributed control and field testing.</p>
+      <span class="status">Field-test prototype · In development</span>
+      <figure class="product-photo"><img src="./usv-v2-field-test.jpg" alt="BN-USV V2 prototype on the water during a field test" width="1920" height="1080"><figcaption>BN-USV V2 during an on-water test.</figcaption></figure>
+      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/dCIbREsCpZQ" title="Brillnova USV V2 build and field test video on YouTube" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <p><a href="https://youtu.be/dCIbREsCpZQ">Watch the V2 video on YouTube →</a> · <a href="#v1">Explore V1 ↓</a></p>
+    </section>
+    <section class="features" id="design" aria-labelledby="design-title">
+      <h2 id="design-title">V2 at a glance</h2>
+      <div class="feature-grid">
+        <article><h3>Modular hull</h3><p>One Main module connects to two Sub modules. Both sides use the same 3D-printed Sub models, arranged symmetrically.</p></article>
+        <article><h3>Distributed control</h3><p>A Raspberry Pi, Main ESP32 and two Sub controllers bring together sensor data, RC control and propulsion over a CAN bus.</p></article>
+        <article><h3>Ground control</h3><p>A browser-based GCS displays telemetry, supports waypoint planning and records field-test data for review.</p></article>
+      </div>
+    </section>
+    <section class="features specifications" aria-labelledby="v2-specifications-title">
+      <h2 id="v2-specifications-title">V2 specifications</h2>
+      <div class="spec-grid">
+        <table><caption>Main module (1)</caption><tbody>
+          <tr><th scope="row">Length</th><td>0.25 m</td></tr><tr><th scope="row">Width</th><td>0.15 m</td></tr><tr><th scope="row">Height</th><td>0.08 m</td></tr><tr><th scope="row">Mass</th><td>1,190 g</td></tr>
+        </tbody></table>
+        <table><caption>Sub module (2)</caption><tbody>
+          <tr><th scope="row">Length</th><td>0.65 m</td></tr><tr><th scope="row">Width</th><td>0.11 m</td></tr><tr><th scope="row">Height</th><td>0.13 m</td></tr><tr><th scope="row">Mass</th><td>2,405 g</td></tr><tr><th scope="row">Draft</th><td>62 mm</td></tr><tr><th scope="row">Freeboard</th><td>70 mm</td></tr><tr><th scope="row">Reserve displacement<br><small>(fully submerged)</small></th><td>Approx. 3.9 kg</td></tr>
+        </tbody></table>
+        <table><caption>Sub sections</caption><tbody>
+          <tr><th scope="row">Mid<br><small>Length × width × height</small></th><td>0.23 × 0.11 × 0.13 m</td></tr>
+          <tr><th scope="row">FWD / AFT<br><small>Length × width × height</small></th><td>0.21 × 0.11 × 0.13 m</td></tr>
+        </tbody></table>
+      </div>
+      <p class="spec-note">Each Sub consists of FWD, MID and AFT sections; the FWD and AFT designs are symmetrical.</p>
+    </section>
+    <section class="features" id="field-test" aria-labelledby="test-title">
+      <h2 id="test-title">Field testing and next steps</h2>
+      <div class="feature-grid">
+        <article><h3>Tested on water</h3><p>RC control and communication between Main and Sub controllers were exercised during field testing.</p></article>
+        <article><h3>Autonomy in progress</h3><p>Waypoint testing revealed unstable heading acquisition. Control changes need further bench and water validation before reliable autonomous operation.</p></article>
+        <article><h3>Hardware improvements</h3><p>Printability, enclosure sealing and sensor installation remain under development. The shared STL files are prototype designs.</p></article>
+      </div>
+      <p class="development-note"><strong>Development note</strong><span>V2 is an experimental prototype, not a finished or certified product.</span></p>
+    </section>
+    <section class="features" id="resources" aria-labelledby="resources-title">
+      <h2 id="resources-title">Project resources</h2>
+      <div class="feature-grid">
+        <article><h3>Hull STL files</h3><p>Prototype hull STL files and weight pallet parts are being prepared for the V2 repository.</p></article>
+        <article><h3>Software and firmware</h3><p>The Pi application and ESP32 operating and diagnostic sketches are being prepared for the V2 repository.</p></article>
+        <article><h3>Sharing scope</h3><p>PCB manufacturing files and source CAD are not included. V2 licensing terms are being determined.</p></article>
+      </div>
+      <p class="development-note"><strong>Repository</strong><span>The V2 materials are being prepared for publication. A repository link will be added when available.</span></p>
+    </section>
+    <hr class="version-divider">
+    <section class="intro" id="v1" aria-labelledby="v1-title">
+      <div class="version-heading"><h2 id="v1-title" class="product-title"><span class="product-version">V1</span></h2><span class="status">Reference prototype · Not for sale</span></div>
+      <p class="lead">The first BN-USV prototype brought together GPS navigation, propulsion control and onboard data logging. Its field testing informed the modular V2 design.</p>
+      <figure class="product-photo"><img src="./usv-v1.jpg" alt="BN-USV V1 prototype on the water with a central hull and two outriggers" width="1920" height="1080"><figcaption>V1 during on-water testing.</figcaption></figure>
+      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/Lz2eOEANyZo" title="Brillnova USV V1 video on YouTube" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    </section>
+    <section class="features" aria-labelledby="v1-features-title">
+      <h2 id="v1-features-title">V1 at a glance</h2>
+      <div class="feature-grid">
+        <article><h3>Navigation</h3><p>Uses GPS and heading data to calculate the distance and direction to a target waypoint.</p></article>
+        <article><h3>Propulsion control</h3><p>Turns navigation inputs into throttle and steering commands for the onboard controller.</p></article>
+        <article><h3>Data logging</h3><p>Records position, sensor readings, control signals and battery status for review.</p></article>
+      </div>
+      <p><a href="https://github.com/Brillnova/BN-USV-V1">Explore the V1 repository →</a></p>
+      <p class="development-note"><strong>Reference design</strong><span>V1 is not a ready-to-print DIY kit. Its hull requires post-processing, bonding and waterproofing. See the V1 repository for license and assembly notes.</span></p>
+    </section>
+    <section class="features specifications" aria-labelledby="v1-specifications-title">
+      <h2 id="v1-specifications-title">V1 specifications</h2>
+      <div class="spec-grid">
+        <table><caption>Central hull</caption><tbody><tr><th scope="row">Length</th><td>0.7 m</td></tr><tr><th scope="row">Width</th><td>0.15 m</td></tr><tr><th scope="row">Draft</th><td>0.1 m</td></tr><tr><th scope="row">Mass</th><td>2.9 kg</td></tr></tbody></table>
+        <table><caption>Outriggers (2)</caption><tbody><tr><th scope="row">Length</th><td>0.5 m</td></tr><tr><th scope="row">Width</th><td>0.06 m</td></tr><tr><th scope="row">Draft</th><td>0.025 m</td></tr><tr><th scope="row">Mass</th><td>0.33 kg</td></tr></tbody></table>
+        <table><caption>Complete assembly</caption><tbody><tr><th scope="row">Length</th><td>0.7 m</td></tr><tr><th scope="row">Width</th><td>0.46 m</td></tr><tr><th scope="row">Mass</th><td>4.14 kg</td></tr></tbody></table>
+      </div>
+      <p class="spec-note">Complete assembly: central hull, two outriggers and lid.</p>
+    </section>
+    <section class="contact" id="contact"><h2>Contact</h2><a href="mailto:contact@brillnova.net">contact@brillnova.net</a></section>
+  </main>
+  <footer class="footer wrap"><span>Brillnova</span><p>© 2026 Brillnova. All rights reserved.</p></footer>
+</body>
+</html>

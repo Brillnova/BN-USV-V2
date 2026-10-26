@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BN-USV GCS</title>
+    <link rel="stylesheet" href="/vendor/leaflet.css">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="topbar">
+        <div>
+          <h1>BN-USV GCS</h1>
+          <p id="linkStatus">Connecting</p>
+        </div>
+        <div class="top-batteries">
+          <div class="top-battery">
+            <strong>Main · 2S</strong>
+            <span id="mainBatteryVoltage">Battery waiting</span>
+            <div class="battery-bar"><span id="mainBatteryBar"></span></div>
+          </div>
+          <div class="top-battery">
+            <strong>Left Sub · 4S</strong>
+            <span id="leftBatteryVoltage">Battery waiting</span>
+            <div class="battery-bar"><span id="leftBatteryBar"></span></div>
+          </div>
+          <div class="top-battery">
+            <strong>Right Sub · 4S</strong>
+            <span id="rightBatteryVoltage">Battery waiting</span>
+            <div class="battery-bar"><span id="rightBatteryBar"></span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel attitude-panel">
+          <h2>Attitude</h2>
+          <canvas id="attitudeCanvas" width="300" height="240"></canvas>
+          <div class="attitude-readout">
+            <div>
+              <span>Roll</span>
+              <strong id="rollValue">-</strong>
+            </div>
+            <div>
+              <span>Pitch</span>
+              <strong id="pitchValue">-</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel compass-panel">
+          <h2>Heading</h2>
+          <canvas id="compassCanvas" width="260" height="260"></canvas>
+          <div class="heading-readout">
+            <strong id="headingValue">-</strong>
+            <span id="headingSource">Compass</span>
+          </div>
+        </article>
+
+        <article class="panel chart-panel">
+          <div class="chart-header">
+            <h2>Trends</h2>
+            <div class="trend-controls">
+              <button class="trend-toggle active" data-series="battery">Battery</button>
+              <button class="trend-toggle active" data-series="speed">Speed</button>
+              <button class="trend-toggle active" data-series="heading">Heading</button>
+              <button class="trend-toggle" data-series="roll">Roll</button>
+              <button class="trend-toggle" data-series="pitch">Pitch</button>
+            </div>
+          </div>
+          <canvas id="trendCanvas" width="420" height="260"></canvas>
+        </article>
+      </section>
+
+      <section class="panel command-panel">
+        <div class="output-monitor">
+          <div>
+            <span>Main Left</span>
+            <strong id="leftPwmValue">-</strong>
+          </div>
+          <div>
+            <span>Main Right</span>
+            <strong id="rightPwmValue">-</strong>
+          </div>
+          <div>
+            <span>Left Actual</span>
+            <strong id="leftActualValue">-</strong>
+          </div>
+          <div>
+            <span>Right Actual</span>
+            <strong id="rightActualValue">-</strong>
+          </div>
+          <div>
+            <span>Pi Command</span>
+            <strong id="commandFreshValue">-</strong>
+          </div>
+          <div>
+            <span>Control</span>
+            <strong id="controlSourceValue">-</strong>
+          </div>
+          <div>
+            <span>RC Throttle</span>
+            <strong id="rcThrottleValue">-</strong>
+          </div>
+          <div>
+            <span>RC Steering</span>
+            <strong id="rcSteeringValue">-</strong>
+          </div>
+          <div>
+            <span>RC Mode</span>
+            <strong id="rcModeValue">-</strong>
+          </div>
+          <div>
+            <span>RC Receiver</span>
+            <strong id="rcLinkValue">-</strong>
+          </div>
+        </div>
+
+        <div class="arm-row">
+          <label class="switch">
+            <input id="enableOutput" type="checkbox">
+            <span></span>
+          </label>
+          <strong>Manual Output</strong>
+          <button id="stopButton" class="danger">STOP</button>
+        </div>
+
+        <label>
+          <span>Throttle</span>
+          <input id="throttle" type="range" min="-100" max="100" value="0">
+        </label>
+
+        <label>
+          <span>Steering</span>
+          <input id="steering" type="range" min="-100" max="100" value="0">
+        </label>
+      </section>
+
+      <section class="panel map-panel">
+        <div class="map-header">
+          <h2>Position</h2>
+          <a id="mapLink" href="https://www.openstreetmap.org/" target="_blank" rel="noreferrer">Open Map</a>
+        </div>
+        <div id="map" role="application" aria-label="Mission planning map"></div>
+        <div class="map-readout">
+          <span id="mapPosition">GPS waiting</span>
+          <span id="mapFix">-</span>
+        </div>
+        <p class="map-help">Click the map to add a waypoint to the plan.</p>
+      </section>
+
+      <section class="panel mission-panel">
+        <div class="mission-header">
+          <div>
+            <h2>Mission Plan</h2>
+            <p>Edit a draft, then apply it to the Pi mission file.</p>
+          </div>
+          <span id="missionCount">0 waypoints</span>
+        </div>
+        <div class="waypoint-form">
+          <label>
+            <span>Latitude</span>
+            <input id="waypointLat" type="number" min="-90" max="90" step="0.0000001" placeholder="37.566500">
+          </label>
+          <label>
+            <span>Longitude</span>
+            <input id="waypointLon" type="number" min="-180" max="180" step="0.0000001" placeholder="126.978000">
+          </label>
+          <button id="addWaypoint" type="button">Add waypoint</button>
+          <button id="addCurrentPosition" type="button" class="secondary">Add current position</button>
+          <button id="applyMission" type="button">Apply to Pi</button>
+          <button id="revertMission" type="button" class="secondary">Revert edits</button>
+          <button id="clearMission" type="button" class="danger">Clear</button>
+        </div>
+        <p id="missionFeedback" class="mission-feedback" aria-live="polite"></p>
+        <ol id="waypointList" class="waypoint-list"></ol>
+        <div class="mission-runtime">
+          <div><span>Execution</span><strong id="missionRuntimeStatus">IDLE</strong></div>
+          <div><span>Navigation</span><strong id="missionRuntimeNavigation">IDLE</strong></div>
+          <div><span>Target</span><strong id="missionRuntimeTarget">-</strong></div>
+          <div><span>Distance</span><strong id="missionRuntimeDistance">-</strong></div>
+          <div><span>Reason</span><strong id="missionRuntimeReason">No mission started.</strong></div>
+          <label class="mission-tuning">
+            <span>Cruise Output</span>
+            <input id="cruiseThrottle" type="number" min="0" max="1" step="0.01" value="0.25">
+          </label>
+          <button id="applyCruiseThrottle" type="button" class="secondary">Apply output</button>
+          <button id="startMission" type="button">Start</button>
+          <button id="pauseMission" type="button" class="secondary">Pause</button>
+          <button id="stopMission" type="button" class="danger">Stop mission</button>
+        </div>
+      </section>
+
+      <section class="panel test-log-panel">
+        <div class="mission-header">
+          <div>
+            <h2>Test Log</h2>
+            <p>Records navigation, propulsion, RC, CAN, GPS, and battery data at 5 Hz.</p>
+          </div>
+          <span id="testLogStatus">Log idle</span>
+        </div>
+        <div class="mission-runtime">
+          <div><span>Samples</span><strong id="testLogSamples">0</strong></div>
+          <div><span>File</span><strong id="testLogFile">-</strong></div>
+          <button id="startTestLog" type="button">Start test log</button>
+          <button id="stopTestLog" type="button" class="danger">Stop test log</button>
+          <a id="downloadTestCsv" class="button secondary" href="/api/test-log/download?kind=csv">Download CSV</a>
+          <a id="downloadTestSummary" class="button secondary" href="/api/test-log/download?kind=summary">Download summary</a>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="panel">
+          <h2>Main</h2>
+          <dl id="mainStatus"></dl>
+        </article>
+        <article class="panel">
+          <h2>Left Sub</h2>
+          <dl id="leftStatus"></dl>
+        </article>
+        <article class="panel">
+          <h2>Right Sub</h2>
+          <dl id="rightStatus"></dl>
+        </article>
+      </section>
+
+      <section class="grid sensors-grid">
+        <article class="panel">
+          <h2>GPS</h2>
+          <dl id="gpsStatus"></dl>
+        </article>
+        <article class="panel">
+          <h2>IMU</h2>
+          <dl id="imuStatus"></dl>
+        </article>
+        <article class="panel">
+          <h2>Compass</h2>
+          <dl id="magStatus"></dl>
+        </article>
+        <article class="panel">
+          <h2>Main Battery · 2S</h2>
+          <dl id="batteryStatus"></dl>
+        </article>
+      </section>
+
+      <section class="panel">
+        <h2>Raw Log</h2>
+        <pre id="rawLog"></pre>
+      </section>
+    </main>
+    <script src="/vendor/leaflet.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>

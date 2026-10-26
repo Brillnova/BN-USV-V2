@@ -1,0 +1,10 @@
+{
+  "roll": {
+    "invert": false,
+    "offset_deg": 0.0
+  },
+  "pitch": {
+    "invert": false,
+    "offset_deg": 0.0
+  }
+}

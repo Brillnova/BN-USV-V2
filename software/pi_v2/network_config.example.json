@@ -1,0 +1,11 @@
+{
+  "wifi_interface": "wlan0",
+  "preferred_profiles": [
+    "Phone Hotspot",
+    "Office Wi-Fi"
+  ],
+  "connect_timeout_sec": 20,
+  "ap_ssid": "BN-USV-GCS",
+  "ap_password": "replace-with-a-strong-password",
+  "ap_ipv4_address": "10.42.0.1/24"
+}

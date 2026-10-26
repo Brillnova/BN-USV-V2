@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+secrets.h
+network_config.json
+imu_calibration.json
+mission_plan.json
+test_logs/
+*.log

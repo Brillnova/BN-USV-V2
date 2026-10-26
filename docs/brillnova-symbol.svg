@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Brillnova Symbol on Light Background</title>
+  <desc id="desc">A crisp navy and gold star mark designed for white backgrounds.</desc>
+  <defs>
+    <radialGradient id="gold" cx="50%" cy="50%" r="58%">
+      <stop offset="0%" stop-color="#FFF7D0"/>
+      <stop offset="58%" stop-color="#F4C542"/>
+      <stop offset="100%" stop-color="#D5961F"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="#FFFFFF"/>
+  <circle cx="256" cy="256" r="192" fill="#F4F8FC"/>
+  <circle cx="256" cy="256" r="190" fill="none" stroke="#0B2545" stroke-width="10"/>
+  <g fill="#0B2545" opacity="0.72">
+    <circle cx="132" cy="132" r="5"/>
+    <circle cx="380" cy="132" r="4"/>
+    <circle cx="132" cy="380" r="4"/>
+    <circle cx="380" cy="380" r="5"/>
+  </g>
+  <g fill="#DDAA2B">
+    <path d="M112 204l10-4 4-10 4 10 10 4-10 4-4 10-4-10z"/>
+    <path d="M388 204l10-4 4-10 4 10 10 4-10 4-4 10-4-10z"/>
+    <path d="M256 408l12-5 5-12 5 12 12 5-12 5-5 12-5-12z"/>
+  </g>
+  <path fill="url(#gold)" stroke="#0B2545" stroke-width="8" stroke-linejoin="round" d="M256 66l21 145 106-86-86 106 145 21-145 21 86 106-106-86-21 145-21-145-106 86 86-106-145-21 145-21-86-106 106 86z"/>
+  <circle cx="256" cy="256" r="30" fill="#FFFFFF" stroke="#0B2545" stroke-width="6"/>
+</svg>
