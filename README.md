@@ -9,7 +9,7 @@ BN-USV V2 is a modular, 3D-printed unmanned surface vessel prototype. This folde
 - `software/pi_v2/`: local GCS, sensors, mission controller and simulated demo.
 - `software/firmware/`: Main ESP32-S3 and Left/Right ESP32-C3 Sub sketches, shared CAN code and tests.
 - `hardware/stl/`: prototype hull and accessory STL files, organized by part.
-- `docs/`: project page, system overview, limitations and sharing checklist.
+- `docs/`: system overview and known limitations.
 
 ## Preview the GCS
 
@@ -22,7 +22,7 @@ Open <http://127.0.0.1:8000>. The demo uses simulated telemetry; map tiles requi
 
 Sensor defaults in this public copy are **uncalibrated examples**, not settings for any particular boat. Verify wiring, battery dividers, sensor axes, heading and failsafes before any hardware test. Secure the vessel and remove propellers during bench testing.
 
-The source CAD, manufacturing/PCB files, field logs, real mission coordinates, local configuration and credentials are intentionally excluded. The STL models are prototypes and may require supports or further changes for reliable printing and sealing. See [sharing checklist](docs/PUBLICATION_CHECKLIST.md). 
+The source CAD, manufacturing/PCB files, field logs, real mission coordinates, local configuration and credentials are intentionally excluded. The STL models are prototypes and may require supports or further changes for reliable printing and sealing. See the [known limitations](docs/KNOWN_LIMITATIONS.md).
 
 ## License
 
@@ -32,4 +32,4 @@ Brillnova STL models in [`hardware/stl/`](hardware/stl/README.md) are licensed s
 
 ## Project page
 
-Preview the [combined V2 and V1 project page](docs/index.html) locally. See [Pages setup](docs/PAGES_SETUP.md) for publishing after the repository is created.
+Visit the [Brillnova website](https://brillnova.net) for project information.
